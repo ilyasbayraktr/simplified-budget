@@ -4,18 +4,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .inputs {
+    @apply w-full rounded-xl px-3 pb-3 pt-7 bg-inputbg text-white focus:bg-white focus:text-black outline-none transition-all
+  }
+  .containers {
+    @apply container flex items-center justify-center min-h-screen pb-[10%]
+  }
+}
+
 html {
   font-family: 'Poppins', sans-serif;
 }
 
 body {
   background-color: black;
-}
-
-@layer components {
-  .inputs {
-    @apply w-full rounded-xl px-3 pb-3 pt-7 bg-inputbg text-white focus:bg-white focus:text-black outline-none transition-all
-  }
 }
 
 .hide-scrollbar {

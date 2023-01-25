@@ -14,7 +14,7 @@ const Statistics = () => {
     });
 
     return (
-        <div className='container flex items-center justify-center min-h-screen pb-[10%]'>
+        <div className='containers'>
             <div className='w-full h-[25rem]'>
                 <ResponsiveContainer>
                     <LineChart data={data}>
