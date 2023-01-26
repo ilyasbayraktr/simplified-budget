@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { BudgetContext } from '../contexts/BudgetContext'
 import { useTable, useSortBy } from 'react-table'
 
-const columns = [{ Header: 'ID', accessor: 'index', }, { Header: 'Name', accessor: 'name', }, { Header: 'Price', accessor: 'price', }, { Header: 'Date', accessor: 'date', },]
+const columns = [{ Header: 'ID', accessor: 'ID', }, { Header: 'Name', accessor: 'name', }, { Header: 'Price', accessor: 'price', }, { Header: 'Date', accessor: 'date', },]
 
 const Expenses = () => {
 
@@ -18,20 +18,20 @@ const Expenses = () => {
 
     return (
         <div className='containers'>
-            <div className='w-full max-h-[29rem] overflow-y-scroll hide-scrollbar px-10 py-7 bg-white'>
+            <div className='w-full max-h-[29rem] overflow-y-scroll hide-scrollbar p-5 bg-white'>
                 <table {...getTableProps()} className="w-full">
-                    <thead className='text-start'>
+                    <thead>
                         {headerGroups.map(headerGroup => (
                             <tr {...headerGroup.getHeaderGroupProps()}>
                                 {headerGroup.headers.map(column => (
-                                    <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                                    <th className='text-start border-b-2 border-black' {...column.getHeaderProps(column.getSortByToggleProps())}>
                                         {column.render('Header')}
                                         <span>
                                             {column.isSorted
                                                 ? column.isSortedDesc
-                                                    ? ' 🔽'
-                                                    : ' 🔼'
-                                                : ''}
+                                                    ? ' ⇩'
+                                                    : ' ⇧'
+                                                : ' ⇳'}
                                         </span>
                                     </th>
                                 ))}
@@ -44,7 +44,7 @@ const Expenses = () => {
                             return (
                                 <tr {...row.getRowProps()}>
                                     {row.cells.map(cell => {
-                                        return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                                        return <td className='py-1 border-b-2' {...cell.getCellProps()}>{cell.render('Cell')}</td>
                                     })}
                                 </tr>
                             )

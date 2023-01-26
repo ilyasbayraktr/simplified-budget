@@ -11,6 +11,7 @@ const Expense = () => {
         const expenseName = expense.name;
         const newExpenses = expenses.filter((expense, i) => i !== index);
         setExpenses(newExpenses);
+        localStorage.setItem("expenses", JSON.stringify(newExpenses));
         toast.error(expenseName + " deleted.")
     }
 
@@ -31,7 +32,7 @@ const Expense = () => {
                                     <path d="M7 7L9 3H15L17 7" stroke="#8E909D" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                             </button>
-                            <Toaster position='top-right' />
+                            <Toaster position='top-left' />
                         </div>
                     </div>
                 ))

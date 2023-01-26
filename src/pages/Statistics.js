@@ -6,23 +6,16 @@ const Statistics = () => {
 
     const { expenses } = useContext(BudgetContext);
 
-    const data = expenses.map(expense => {
-        return {
-            expenseDate: expense.date,
-            Expense: expense.price
-        }
-    });
-
     return (
         <div className='containers'>
             <div className='w-full h-[25rem]'>
                 <ResponsiveContainer>
-                    <LineChart data={data}>
+                    <LineChart data={expenses}>
                         <CartesianGrid />
                         <Tooltip />
-                        <Line type="monotone" dataKey="Expense" stroke="#51F129" />
-                        <XAxis dataKey="expenseDate" />
-                        <YAxis allowDataOverflow="true" />
+                        <Line type="monotone" dataKey="price" stroke="#51F129" />
+                        <XAxis dataKey="date" />
+                        <YAxis />
                     </LineChart>
                 </ResponsiveContainer>
             </div>

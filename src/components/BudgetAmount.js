@@ -10,6 +10,7 @@ const BudgetAmount = () => {
     const handleBudget = (e) => {
         setBudget(e.target.value);
         setBudgetValue(e.target.value);
+        localStorage.setItem("budget", JSON.stringify(e.target.value))
     }
 
     return (
